@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/popup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    android:background="#00000000"
+    >
+
+    <ImageButton
+        android:id="@+id/ib_color"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="100dp"
+        android:background="#00000000"
+        android:tint="@color/logoBlue"
+        app:srcCompat="@drawable/icons8_paint_palette_50" />
+
+    <ImageButton
+        android:id="@+id/ib_share"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="60dp"
+        android:background="#00000000"
+        android:tint="@color/logoBlue"
+        app:srcCompat="@drawable/icons8_share_50" />
+
+    <ImageButton
+        android:id="@+id/ib_erase"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/ib_color"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="100dp"
+        android:background="#00000000"
+        android:tint="@color/logoBlue"
+        app:srcCompat="@drawable/icons8_erase_50_2" />
+
+    <ImageButton
+        android:id="@+id/ib_lineweight"
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        android:layout_below="@+id/ib_share"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_alignParentEnd="true"
+        app:layout_constraintTop_toBottomOf="@id/ib_share"
+        android:background="#00000000"
+        android:tint="@color/logoBlue"
+        app:srcCompat="@drawable/icons8_line_width_50_2" />
+
+    <ImageButton
+        android:id="@+id/ib_close"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="150dp"
+        android:layout_alignParentBottom="true"
+        android:background="#00000000"
+        android:tint="@color/logoBlue"
+        app:srcCompat="@drawable/icons8_close_window_50" />
+</RelativeLayout>
