@@ -1,12 +1,8 @@
 package com.example.draw;
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import java.io.OutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,31 +10,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import android.content.Context;
 import android.os.Environment;
-import android.widget.Toast;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import android.net.Uri;
 import android.content.Intent;
-import android.content.ContentResolver;
 import androidx.core.content.FileProvider;
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Screenshot {
 
-    public Bitmap takeScreenshot(View v, Context context) {
-        v.setDrawingCacheEnabled(true);
-        v.buildDrawingCache(true);
-        Bitmap b = Bitmap.createBitmap(v.getDrawingCache());
-        v.setDrawingCacheEnabled(false);
-        storeScreenshot(b, "AATEST");
-        Log.d("STORAGE", "Storage");
-        return b;
-    }
+
 
     public void storeScreenshot(Bitmap bitmap, String filename) {
         String path = Environment.getExternalStorageDirectory().toString() + "/" + filename;

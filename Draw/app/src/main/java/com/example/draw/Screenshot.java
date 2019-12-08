@@ -45,7 +45,6 @@ public class Screenshot {
         Log.d("File", path);
         OutputStream out = null;
         File imageFile = new File(path);
-
         try {
             out = new FileOutputStream(imageFile);
             // choose JPEG format
@@ -56,7 +55,6 @@ public class Screenshot {
         } catch (IOException e) {
             Log.d("e", "IOException");
         } finally {
-
             try {
                 if (out != null) {
                     out.close();
@@ -64,10 +62,8 @@ public class Screenshot {
 
             } catch (Exception exc) {
             }
-
         }
     }
-
 
     public static void takeScreenshotOfRootView(View v, Context context) {
         v.setDrawingCacheEnabled(true);
@@ -84,10 +80,7 @@ public class Screenshot {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d("ERROR IN SCREENSHOT", "IOEXCEPTION");
         }
-        Log.d("STORAGE", "Storage");
-        //return takeScreenshot(v.getRootView());
         File imagePath = new File(context.getCacheDir(), "images");
         File newFile = new File(imagePath, "image.png");
         Uri contentUri = FileProvider.getUriForFile(context, "com.example.myapp.fileprovider", newFile);
@@ -101,6 +94,5 @@ public class Screenshot {
             context.startActivity(Intent.createChooser(shareIntent, "Choose an app"));
         }
     }
-
 }
 
