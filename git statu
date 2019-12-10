@@ -1,0 +1,149 @@
+[1mdiff --git a/Draw/app/src/main/java/com/example/draw/Drawing.java b/Draw/app/src/main/java/com/example/draw/Drawing.java[m
+[1mindex fdb9217..a534494 100644[m
+[1m--- a/Draw/app/src/main/java/com/example/draw/Drawing.java[m
+[1m+++ b/Draw/app/src/main/java/com/example/draw/Drawing.java[m
+[36m@@ -124,28 +124,9 @@[m [mpublic class Drawing extends View {[m
+                     mPaint.setMaskFilter(mBlur);[m
+ [m
+                 mCanvas.drawPath(fp.path, mPaint);[m
+[31m-            }[m
+[31m-//if (!togglePen) {[m
+[31m-//        Log.d("TRANSLATE", "TRANSLATE");[m
+[31m-//        mCanvas.translate(translateX / mScaleFactor, translateY / mScaleFactor);[m
+[32m+[m
+         float translateX = MainActivity.getTranslateX();[m
+         float translateY = MainActivity.getTranslateY();[m
+[31m-//}[m
+[31m-       // if (translateX > MainActivity.getOffsetX()) {[m
+[31m-       //     translateX = MainActivity.getOffsetX();[m
+[31m-       // }[m
+[31m-       // if (translateY > MainActivity.getOffsetY()) {[m
+[31m-       //     translateY = MainActivity.getOffsetY();[m
+[31m-       // }[m
+[31m-       // if (translateX > MainActivity.getOffsetX() + (1080f / mScaleFactor)) {[m
+[31m-       //    translateX = MainActivity.getOffsetX();[m
+[31m-       // }[m
+[31m-       // if (translateY > MainActivity.getOffsetY() + (2220f / mScaleFactor)) {[m
+[31m-       //     translateY = MainActivity.getOffsetY();[m
+[31m-       // }[m
+[31m-[m
+[31m-        Log.d("TESTXYXXXX",Float.toString(translateX));[m
+[31m-        Log.d("TESTXYYYY",Float.toString(translateY));[m
+         canvas.drawBitmap(mBitmap, translateX, translateY, mBitmapPaint);[m
+         canvas.restore();[m
+     }[m
+[36m@@ -155,7 +136,6 @@[m [mpublic class Drawing extends View {[m
+         strokeWidth = MainActivity.getProgress();[m
+         FingerPath fp = new FingerPath(currentColor, emboss, blur, strokeWidth, mPath);[m
+         paths.add(fp);[m
+[31m-[m
+         mPath.reset();[m
+         mPath.moveTo(x, y);[m
+         mX = x;[m
+[36m@@ -184,13 +164,8 @@[m [mpublic class Drawing extends View {[m
+         Log.d("Factor", test1);[m
+         }[m
+ [m
+[31m-[m
+[31m-[m
+[31m-[m
+     public void touchUp() {[m
+         mPath.lineTo(mX, mY);[m
+     }[m
+ [m
+[31m-[m
+[31m-[m
+ }[m
+[1mdiff --git a/app/src/main/ic_launcher-web.png b/app/src/main/ic_launcher-web.png[m
+[1mindex 525beb7..9980196 100644[m
+Binary files a/app/src/main/ic_launcher-web.png and b/app/src/main/ic_launcher-web.png differ
+[1mdiff --git a/app/src/main/java/com/example/draw/Drawing.java b/app/src/main/java/com/example/draw/Drawing.java[m
+[1mindex 0df8dfd..818d3cd 100644[m
+[1m--- a/app/src/main/java/com/example/draw/Drawing.java[m
+[1m+++ b/app/src/main/java/com/example/draw/Drawing.java[m
+[36m@@ -130,6 +130,8 @@[m [mpublic class Drawing extends View {[m
+         }[m
+     }[m
+ [m
+[32m+[m
+[32m+[m
+     public void touchUp() {[m
+         mPath.lineTo(mX, mY);[m
+         Log.d("Touchup", "touchup");[m
+[1mdiff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[1mindex eca70cf..036d09b 100644[m
+[1m--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[1m+++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml[m
+[36m@@ -1,5 +1,5 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">[m
+[31m-    <background android:drawable="@drawable/ic_launcher_background" />[m
+[31m-    <foreground android:drawable="@drawable/ic_launcher_foreground" />[m
+[32m+[m[32m    <background android:drawable="@color/ic_launcher_background"/>[m
+[32m+[m[32m    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>[m
+ </adaptive-icon>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml[m
+[1mindex eca70cf..036d09b 100644[m
+[1m--- a/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml[m
+[1m+++ b/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml[m
+[36m@@ -1,5 +1,5 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">[m
+[31m-    <background android:drawable="@drawable/ic_launcher_background" />[m
+[31m-    <foreground android:drawable="@drawable/ic_launcher_foreground" />[m
+[32m+[m[32m    <background android:drawable="@color/ic_launcher_background"/>[m
+[32m+[m[32m    <foreground android:drawable="@mipmap/ic_launcher_foreground"/>[m
+ </adaptive-icon>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/mipmap-hdpi/ic_launcher.png b/app/src/main/res/mipmap-hdpi/ic_launcher.png[m
+[1mindex 898f3ed..11376c3 100644[m
+Binary files a/app/src/main/res/mipmap-hdpi/ic_launcher.png and b/app/src/main/res/mipmap-hdpi/ic_launcher.png differ
+[1mdiff --git a/app/src/main/res/mipmap-hdpi/ic_launcher_round.png b/app/src/main/res/mipmap-hdpi/ic_launcher_round.png[m
+[1mindex dffca36..1a0273f 100644[m
+Binary files a/app/src/main/res/mipmap-hdpi/ic_launcher_round.png and b/app/src/main/res/mipmap-hdpi/ic_launcher_round.png differ
+[1mdiff --git a/app/src/main/res/mipmap-mdpi/ic_launcher.png b/app/src/main/res/mipmap-mdpi/ic_launcher.png[m
+[1mindex 64ba76f..0aa981a 100644[m
+Binary files a/app/src/main/res/mipmap-mdpi/ic_launcher.png and b/app/src/main/res/mipmap-mdpi/ic_launcher.png differ
+[1mdiff --git a/app/src/main/res/mipmap-mdpi/ic_launcher_round.png b/app/src/main/res/mipmap-mdpi/ic_launcher_round.png[m
+[1mindex dae5e08..bcb2f56 100644[m
+Binary files a/app/src/main/res/mipmap-mdpi/ic_launcher_round.png and b/app/src/main/res/mipmap-mdpi/ic_launcher_round.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xhdpi/ic_launcher.png b/app/src/main/res/mipmap-xhdpi/ic_launcher.png[m
+[1mindex e5ed465..53f7e36 100644[m
+Binary files a/app/src/main/res/mipmap-xhdpi/ic_launcher.png and b/app/src/main/res/mipmap-xhdpi/ic_launcher.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png b/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png[m
+[1mindex 14ed0af..17ec8ba 100644[m
+Binary files a/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png and b/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xxhdpi/ic_launcher.png b/app/src/main/res/mipmap-xxhdpi/ic_launcher.png[m
+[1mindex b0907ca..cdb40ad 100644[m
+Binary files a/app/src/main/res/mipmap-xxhdpi/ic_launcher.png and b/app/src/main/res/mipmap-xxhdpi/ic_launcher.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png b/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png[m
+[1mindex d8ae031..ae2ef7c 100644[m
+Binary files a/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png and b/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png b/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png[m
+[1mindex 2c18de9..e7f07e1 100644[m
+Binary files a/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png and b/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png differ
+[1mdiff --git a/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png b/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png[m
+[1mindex beed3cd..e9fd47b 100644[m
+Binary files a/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png and b/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png differ
+[1mdiff --git a/app/src/main/res/values/ic_launcher_background.xml b/app/src/main/res/values/ic_launcher_background.xml[m
+[1mindex 09a756b..c5e7709 100644[m
+[1m--- a/app/src/main/res/values/ic_launcher_background.xml[m
+[1m+++ b/app/src/main/res/values/ic_launcher_background.xml[m
+[36m@@ -1,4 +1,4 @@[m
+ <?xml version="1.0" encoding="utf-8"?>[m
+ <resources>[m
+[31m-    <color name="ic_launcher_background">#26A69A</color>[m
+[32m+[m[32m    <color name="ic_launcher_background">#6BA1FF</color>[m
+ </resources>[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml[m
+[1mindex 528028b..52802cc 100644[m
+[1m--- a/app/src/main/res/values/strings.xml[m
+[1m+++ b/app/src/main/res/values/strings.xml[m
+[36m@@ -1,4 +1,4 @@[m
+ <resources>[m
+[31m-    <string name="app_name">Draw</string>[m
+[32m+[m[32m    <string name="app_name">Sketch Share</string>[m
+ </resources>[m
+ [m

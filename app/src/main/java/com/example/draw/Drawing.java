@@ -130,6 +130,8 @@ public class Drawing extends View {
         }
     }
 
+
+
     public void touchUp() {
         mPath.lineTo(mX, mY);
         Log.d("Touchup", "touchup");

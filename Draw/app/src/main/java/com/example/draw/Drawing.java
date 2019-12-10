@@ -124,28 +124,9 @@ public class Drawing extends View {
                     mPaint.setMaskFilter(mBlur);
 
                 mCanvas.drawPath(fp.path, mPaint);
-            }
-//if (!togglePen) {
-//        Log.d("TRANSLATE", "TRANSLATE");
-//        mCanvas.translate(translateX / mScaleFactor, translateY / mScaleFactor);
+
         float translateX = MainActivity.getTranslateX();
         float translateY = MainActivity.getTranslateY();
-//}
-       // if (translateX > MainActivity.getOffsetX()) {
-       //     translateX = MainActivity.getOffsetX();
-       // }
-       // if (translateY > MainActivity.getOffsetY()) {
-       //     translateY = MainActivity.getOffsetY();
-       // }
-       // if (translateX > MainActivity.getOffsetX() + (1080f / mScaleFactor)) {
-       //    translateX = MainActivity.getOffsetX();
-       // }
-       // if (translateY > MainActivity.getOffsetY() + (2220f / mScaleFactor)) {
-       //     translateY = MainActivity.getOffsetY();
-       // }
-
-        Log.d("TESTXYXXXX",Float.toString(translateX));
-        Log.d("TESTXYYYY",Float.toString(translateY));
         canvas.drawBitmap(mBitmap, translateX, translateY, mBitmapPaint);
         canvas.restore();
     }
@@ -155,7 +136,6 @@ public class Drawing extends View {
         strokeWidth = MainActivity.getProgress();
         FingerPath fp = new FingerPath(currentColor, emboss, blur, strokeWidth, mPath);
         paths.add(fp);
-
         mPath.reset();
         mPath.moveTo(x, y);
         mX = x;
@@ -184,13 +164,8 @@ public class Drawing extends View {
         Log.d("Factor", test1);
         }
 
-
-
-
     public void touchUp() {
         mPath.lineTo(mX, mY);
     }
-
-
 
 }
